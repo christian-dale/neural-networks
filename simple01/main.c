@@ -19,9 +19,9 @@ int main(int argc, char *argv[]) {
             double y_pred = weight * x + bias;
             double error = y_pred - y_true;
 
-            // Adjust weights
-            weight -= learning_rate * error * x;
-            bias -= learning_rate * error;
+            // Gradient descent
+            weight = weight - learning_rate * error * x;
+            bias = bias - learning_rate * error;
         }
 
         // Print weight and bias every 1000 epochs
