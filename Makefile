@@ -1,12 +1,8 @@
-SOURCE = simple01/main.c
-CFLAGS = -Wall
-BUILD_DIR = build
-NETS = simple001
+SUBDIRS = simple01
 
-all: $(BUILD_DIR) compile
+.PHONY: all
 
-$(BUILD_DIR):
-	mkdir -p $(BUILD_DIR)
-
-compile: $(SOURCE)
-	gcc $^ $(CFLAGS) -o $(BUILD_DIR)/simple01
+all:
+	for d in $(SUBDIRS); do \
+		$(MAKE) -C $$d; \
+	done
